@@ -1,15 +1,14 @@
+
 ## SN74LS47N BCD-To-Seven Segment Decoder/Driver
 ### Pins defintion
   - BI = Blanking input(BI)/Ripple blanking output(RBO)
   - RBI = Ripple blanking input
   - LT = Lamp test
-  - Pins D_PIN=11, C_PIN=10, B_PIN=9, A_PIN=8, RBI_PIN=7, BI_PIN=6, LT_PIN=5
+  - Pins D_PIN=11, C_PIN=10, B_PIN=9, A_PIN=8, RBI_PIN=7, BI_PIN=6, 	LT_PIN=5
+	
+		int pins[8]={5, 6, 7, 8, 9, 10, 11,0};
 
-
-    int pins[8]={5, 6, 7, 8, 9, 10, 11,0};
-
-
-  ###Characters and operating modes
+  ### Characters and operating modes
    - Operation RBI: turns off the segments. It needs 
      LT pin set to HIGH and everything else set to LOW
    
@@ -30,18 +29,17 @@
 - Pins states expressed in bits from least significant bit (right most)
   to most significant bit (left most) according to the order they are 
   connected to the arudino, which is defined in the enum above, **for example:**
-
-
-##### character 0 = 0b0000111
+#### character 0 = 0b0000111
 
 |0b|0|0|0|0|1|1|1|
-| :----: |
+| :----: |  :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 ||D|C|B|A|RBI|BI|LT|
 
 
- ##### character 1 = 0b0001x11
+#### character 1 = 0b0001x11
+  
 |0b|0|0|0|1|x|1|1|
-| :----: |
+| :----: | :----:| :----: | :----: | :----: | :----: | :----: | :----: |
 ||D|C|B|A|RBI|BI|LT|
 
 * note: x means that the IC does not care about the state of that pin
